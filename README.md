@@ -1,6 +1,6 @@
 # recipe_app
 
-A new Flutter project.
+An App full of delicousness!
 
 ## Getting Started
 
