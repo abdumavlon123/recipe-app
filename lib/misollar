@@ -1,0 +1,26 @@
+// TourPackageItem.java
+package com.example.airtravel;
+
+public class TourPackageItem {
+    private String location;
+    private String travelDate;
+    private double price;
+
+    public TourPackageItem(String location, String travelDate, double price) {
+        this.location = location;
+        this.travelDate = travelDate;
+        this.price = price;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public String getTravelDate() {
+        return travelDate;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+}
