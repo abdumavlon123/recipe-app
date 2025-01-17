@@ -1,0 +1,84 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(AirTravelApp());
+}
+
+class AirTravelApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Air Travel',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: TourPackageScreen(),
+    );
+  }
+}
+
+class TourPackageScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Tour Packages'),
+      ),
+      body: Column(
+        children: [
+          SizedBox(height: 20),
+          Text(
+            'Explore Our Exclusive Tour Packages',
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: 20),
+          TourPackageItem(
+            title: 'Beach Vacation',
+            icon: Icons.beach_access,
+            description: 'Enjoy the sunny beaches with luxury resorts.',
+          ),
+          TourPackageItem(
+            title: 'Mountain Adventure',
+            icon: Icons.mountain,
+            description: 'Explore the breathtaking mountain terrains.',
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class TourPackageItem extends StatelessWidget {
+  final String title;
+  final IconData icon;
+  final String description;
+
+  TourPackageItem({required this.title, required this.icon, required this.description});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      child: ListTile(
+        leading: Icon(icon, size: 40),
+        title: Text(
+          title,
+          style: TextStyle(fontSize: 20),
+        ),
+        subtitle: Text(description),
+        trailing: IconButton(
+          icon: Icon(Icons.arrow_forward),
+          onPressed: () {
+            // Keyin, ushbu funksiya orqali boshqa sahifaga o'tish mumkin
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('Navigating to $title')),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
